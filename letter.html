@@ -16,23 +16,25 @@
 }
 
 body{
-  height:100vh;
+  min-height:100vh;
+  overflow-x:hidden;
+  overflow-y:auto;
   display:flex;
   justify-content:center;
   align-items:center;
-  overflow:hidden;
   color:white;
   position:relative;
+  padding:40px 0;
 }
 
-/* Background Blur */
+/* BLURRED BACKGROUND SLIDESHOW */
 .bg{
   position:fixed;
   width:100%;
   height:100%;
   background-size:cover;
   background-position:center;
-  filter:blur(30px) brightness(0.5);
+  filter:blur(25px) brightness(0.6);
   animation:bgSlide 25s infinite;
   z-index:-2;
 }
@@ -46,14 +48,14 @@ body{
   100%{background-image:url('pic1.jpg');}
 }
 
-/* Floating Photos */
+/* FLOATING PHOTOS */
 .photo{
   position:absolute;
-  width:150px;
-  height:200px;
+  width:160px;
+  height:220px;
   border-radius:15px;
   overflow:hidden;
-  box-shadow:0 20px 40px rgba(0,0,0,0.5);
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
   animation:float 6s ease-in-out infinite;
 }
 
@@ -69,27 +71,28 @@ body{
 .photo4{bottom:12%; right:10%; animation-delay:3s;}
 
 @keyframes float{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-20px);}
-  100%{transform:translateY(0);}
+  0%{transform:translateY(0px) rotate(0deg);}
+  50%{transform:translateY(-25px) rotate(3deg);}
+  100%{transform:translateY(0px) rotate(0deg);}
 }
 
-/* Glowing Letter */
+/* GLOWING LETTER */
 .letter{
   max-width:750px;
   padding:60px;
   border-radius:25px;
-  background:rgba(255,255,255,0.15);
   backdrop-filter:blur(20px);
-  text-align:center;
+  background:rgba(255,255,255,0.15);
   box-shadow:
     0 0 40px rgba(255,192,203,0.7),
     0 0 80px rgba(255,105,180,0.6),
     0 0 120px rgba(255,20,147,0.5);
-  animation:glow 3s infinite alternate;
+  text-align:center;
+  animation:glowPulse 3s infinite alternate;
+  z-index:5;
 }
 
-@keyframes glow{
+@keyframes glowPulse{
   from{
     box-shadow:
       0 0 30px rgba(255,192,203,0.5),
@@ -97,35 +100,34 @@ body{
   }
   to{
     box-shadow:
-      0 0 60px rgba(255,192,203,0.9),
-      0 0 120px rgba(255,105,180,0.8),
-      0 0 160px rgba(255,20,147,0.7);
+      0 0 50px rgba(255,192,203,0.9),
+      0 0 100px rgba(255,105,180,0.8);
   }
 }
 
 h1{
   font-family:'Playfair Display',serif;
-  font-size:2.8rem;
-  margin-bottom:20px;
+  font-size:2.5rem;
+  margin-bottom:30px;
 }
 
 p{
-  line-height:1.8;
-  font-size:1.1rem;
+  font-size:1.05rem;
+  line-height:1.9;
 }
 
 .love{
-  margin-top:25px;
-  font-size:1.5rem;
-  font-weight:bold;
-  animation:pulse 1.5s infinite;
+  margin-top:40px;
+  font-size:1.6rem;
+  font-weight:600;
+  animation:loveGlow 2s infinite alternate;
 }
 
-@keyframes pulse{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.1);}
-  100%{transform:scale(1);}
+@keyframes loveGlow{
+  from{text-shadow:0 0 10px hotpink;}
+  to{text-shadow:0 0 25px deeppink;}
 }
+
 </style>
 </head>
 
@@ -133,22 +135,16 @@ p{
 
 <div class="bg"></div>
 
-<!-- Music -->
-<audio autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<!-- Floating Photos -->
 <div class="photo photo1"><img src="pic1.jpg"></div>
 <div class="photo photo2"><img src="pic2.jpg"></div>
 <div class="photo photo3"><img src="pic3.jpg"></div>
 <div class="photo photo4"><img src="pic4.jpg"></div>
 
 <div class="letter">
-  <h1>My Heart 💕</h1>
+<h1>My Heart 💕</h1>
 
-  <p>
- Happy Valentine’s Day to the girl who accidentally became my favorite person… and now refuses to leave my mind for even five minutes.<br><br>
+<p>
+Happy Valentine’s Day to the girl who accidentally became my favorite person… and now refuses to leave my mind for even five minutes.<br><br>
 
 First of all, how dare you be this cute?<br><br>
 
@@ -160,22 +156,21 @@ And don’t think I haven’t noticed the way you act innocent sometimes. You kn
 
 You’ve become my comfort and my favorite distraction at the same time. And honestly? I wouldn’t change that for anything.<br><br>
 
-I love how you tease me.  
-I love how you pretend you’re not soft.  
-I love how you act strong but still care so deeply.  
+I love how you tease me.<br>
+I love how you pretend you’re not soft.<br>
+I love how you act strong but still care so deeply.<br>
 And I love that you’re mine. Yes. Mine. I said it.<br><br>
 
 If loving you this much is dramatic, then fine — I’m dramatic.<br><br>
 
-No matter who’s around, no matter what changes, no matter how time moves…  
+No matter who’s around, no matter what changes, no matter how time moves…<br>
 You’ll always be the girl my heart chose first.<br><br>
 
 Happy Valentine’s Day, my favorite person 💕
-  </p>
+</p>
 
-  <div class="love">
-    I love you the most 💖
-  </div>
+<div class="love">I love you the most 💖</div>
+
 </div>
 
 </body>
