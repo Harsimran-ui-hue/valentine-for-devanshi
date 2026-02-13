@@ -32,7 +32,7 @@ body{
   z-index:-1;
 }
 
-/* Center Content */
+/* Main Container */
 .container{
   position:relative;
   text-align:center;
@@ -51,11 +51,11 @@ h1{
   margin-bottom:40px;
 }
 
-/* Cinematic Slideshow */
+/* Slideshow */
 .slideshow{
   position:relative;
-  width:280px;
-  height:480px;
+  width:260px;
+  height:460px;
   margin:0 auto;
   border-radius:25px;
   overflow:hidden;
@@ -166,7 +166,9 @@ let slides=document.querySelectorAll(".slide");
 let bg=document.getElementById("bg");
 let current=0;
 
-bg.style.backgroundImage=`url(${slides[0].src})`;
+if(slides.length>0){
+  bg.style.backgroundImage=`url(${slides[0].src})`;
+}
 
 function nextSlide(){
   slides[current].classList.remove("active");
@@ -188,11 +190,19 @@ function createHeart(){
 }
 setInterval(createHeart,700);
 
-/* Open Letter + Play Music */
+/* Open Letter */
 function openLetter(){
-  document.getElementById("letter").style.display="block";
-  document.getElementById("music").play();
+  const letter=document.getElementById("letter");
+  if(letter){
+    letter.style.display="block";
+  }
+
+  const music=document.getElementById("music");
+  if(music){
+    music.play().catch(()=>{});
+  }
 }
+
 </script>
 
 </body>
