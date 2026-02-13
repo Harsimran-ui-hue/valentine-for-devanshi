@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Heart 💕</title>
+<title>For Devanshi 💖</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
@@ -16,18 +16,16 @@
 }
 
 body{
-  min-height:100vh;
-  overflow-x:hidden;
-  overflow-y:auto;
+  height:100vh;
+  overflow:hidden;
   display:flex;
   justify-content:center;
   align-items:center;
+  flex-direction:column;
   color:white;
-  position:relative;
-  padding:40px 0;
 }
 
-/* BLURRED BACKGROUND SLIDESHOW */
+/* Blurred slideshow background */
 .bg{
   position:fixed;
   width:100%;
@@ -48,86 +46,61 @@ body{
   100%{background-image:url('pic1.jpg');}
 }
 
-/* FLOATING PHOTOS */
-.photo{
-  position:absolute;
-  width:160px;
-  height:220px;
-  border-radius:15px;
+/* Center photo slideshow */
+.slider{
+  width:260px;
+  height:380px;
+  border-radius:20px;
   overflow:hidden;
-  box-shadow:0 20px 50px rgba(0,0,0,0.5);
-  animation:float 6s ease-in-out infinite;
+  box-shadow:0 25px 60px rgba(0,0,0,0.6);
+  margin-bottom:40px;
+  position:relative;
 }
 
-.photo img{
+.slider img{
+  position:absolute;
   width:100%;
   height:100%;
   object-fit:cover;
+  opacity:0;
+  animation:fade 20s infinite;
 }
 
-.photo1{top:10%; left:8%;}
-.photo2{top:15%; right:8%; animation-delay:1s;}
-.photo3{bottom:15%; left:10%; animation-delay:2s;}
-.photo4{bottom:12%; right:10%; animation-delay:3s;}
+.slider img:nth-child(1){animation-delay:0s;}
+.slider img:nth-child(2){animation-delay:4s;}
+.slider img:nth-child(3){animation-delay:8s;}
+.slider img:nth-child(4){animation-delay:12s;}
+.slider img:nth-child(5){animation-delay:16s;}
 
-@keyframes float{
-  0%{transform:translateY(0px) rotate(0deg);}
-  50%{transform:translateY(-25px) rotate(3deg);}
-  100%{transform:translateY(0px) rotate(0deg);}
-}
-
-/* GLOWING LETTER */
-.letter{
-  max-width:750px;
-  padding:60px;
-  border-radius:25px;
-  backdrop-filter:blur(20px);
-  background:rgba(255,255,255,0.15);
-  box-shadow:
-    0 0 40px rgba(255,192,203,0.7),
-    0 0 80px rgba(255,105,180,0.6),
-    0 0 120px rgba(255,20,147,0.5);
-  text-align:center;
-  animation:glowPulse 3s infinite alternate;
-  z-index:5;
-}
-
-@keyframes glowPulse{
-  from{
-    box-shadow:
-      0 0 30px rgba(255,192,203,0.5),
-      0 0 60px rgba(255,105,180,0.4);
-  }
-  to{
-    box-shadow:
-      0 0 50px rgba(255,192,203,0.9),
-      0 0 100px rgba(255,105,180,0.8);
-  }
+@keyframes fade{
+  0%{opacity:0;}
+  5%{opacity:1;}
+  20%{opacity:1;}
+  25%{opacity:0;}
+  100%{opacity:0;}
 }
 
 h1{
   font-family:'Playfair Display',serif;
-  font-size:2.5rem;
+  font-size:48px;
   margin-bottom:30px;
 }
 
-p{
-  font-size:1.05rem;
-  line-height:1.9;
+button{
+  padding:15px 35px;
+  border:none;
+  border-radius:30px;
+  font-size:18px;
+  cursor:pointer;
+  background:#ff4d88;
+  color:white;
+  transition:0.3s;
 }
 
-.love{
-  margin-top:40px;
-  font-size:1.6rem;
-  font-weight:600;
-  animation:loveGlow 2s infinite alternate;
+button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px hotpink;
 }
-
-@keyframes loveGlow{
-  from{text-shadow:0 0 10px hotpink;}
-  to{text-shadow:0 0 25px deeppink;}
-}
-
 </style>
 </head>
 
@@ -135,43 +108,27 @@ p{
 
 <div class="bg"></div>
 
-<div class="photo photo1"><img src="pic1.jpg"></div>
-<div class="photo photo2"><img src="pic2.jpg"></div>
-<div class="photo photo3"><img src="pic3.jpg"></div>
-<div class="photo photo4"><img src="pic4.jpg"></div>
+<h1>For Devanshi 💖</h1>
 
-<div class="letter">
-<h1>My Heart 💕</h1>
-
-<p>
-Happy Valentine’s Day to the girl who accidentally became my favorite person… and now refuses to leave my mind for even five minutes.<br><br>
-
-First of all, how dare you be this cute?<br><br>
-
-You just walked into my life, acted normal, smiled a little, talked sweetly… and now I’m out here smiling at my phone like I’ve completely lost control. This is clearly your fault.<br><br>
-
-You’re unfairly adorable. Unfairly sweet. Unfairly good at making me miss you.<br><br>
-
-And don’t think I haven’t noticed the way you act innocent sometimes. You know exactly what you’re doing. One smile and suddenly my entire mood changes. One message and I forget what I was even stressed about.<br><br>
-
-You’ve become my comfort and my favorite distraction at the same time. And honestly? I wouldn’t change that for anything.<br><br>
-
-I love how you tease me.<br>
-I love how you pretend you’re not soft.<br>
-I love how you act strong but still care so deeply.<br>
-And I love that you’re mine. Yes. Mine. I said it.<br><br>
-
-If loving you this much is dramatic, then fine — I’m dramatic.<br><br>
-
-No matter who’s around, no matter what changes, no matter how time moves…<br>
-You’ll always be the girl my heart chose first.<br><br>
-
-Happy Valentine’s Day, my favorite person 💕
-</p>
-
-<div class="love">I love you the most 💖</div>
-
+<div class="slider">
+  <img src="pic1.jpg">
+  <img src="pic2.jpg">
+  <img src="pic3.jpg">
+  <img src="pic4.jpg">
+  <img src="pic5.jpg">
 </div>
+
+<button onclick="openLetter()">Open My Heart 💌</button>
+
+<script>
+function openLetter(){
+  const audio = new Audio("music.mp3");
+  audio.play();
+  setTimeout(()=>{
+    window.location.href="letter.html";
+  },800);
+}
+</script>
 
 </body>
 </html>
