@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -93,20 +93,20 @@ h1{
   }
 }
 
-/* Button */
-button{
+/* Button Link */
+.button-link{
+  display:inline-block;
   margin-top:40px;
   padding:15px 35px;
-  border:none;
   border-radius:40px;
   background:#ff4f9a;
   color:white;
+  text-decoration:none;
   font-size:1rem;
-  cursor:pointer;
   transition:0.3s;
 }
 
-button:hover{
+.button-link:hover{
   transform:scale(1.1);
 }
 </style>
@@ -126,7 +126,9 @@ button:hover{
     <img src="pic3.jpg" class="slide">
   </div>
 
-  <button onclick="goToLetter()">Open My Heart 💌</button>
+  <!-- Direct Link Button -->
+  <a href="letter.html" class="button-link">Open My Heart 💌</a>
+
 </div>
 
 <script>
@@ -158,11 +160,6 @@ function createHeart(){
   setTimeout(()=>heart.remove(),8000);
 }
 setInterval(createHeart,700);
-
-/* Go to second page */
-function goToLetter(){
-  window.location.href="letter.html";
-}
 
 </script>
 
