@@ -1,180 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>For Devanshi 💗</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
 }
 
-body {
-  background: linear-gradient(135deg, #ffd6e8, #ffeaf4);
-  text-align: center;
-  color: #b03060;
-  animation: bgPulse 6s infinite alternate;
+body{
+  overflow:hidden;
+  color:white;
 }
 
-@keyframes bgPulse {
-  0% { background: linear-gradient(135deg, #ffd6e8, #ffeaf4); }
-  100% { background: linear-gradient(135deg, #ffeaf4, #ffd6e8); }
+/* Blurred Background */
+.background{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background-size:cover;
+  background-position:center;
+  filter:blur(25px) brightness(0.7);
+  transition:background-image 1.5s ease-in-out;
+  z-index:-1;
 }
 
-h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 2.8rem;
-  margin-top: 80px;
+/* Center Content */
+.container{
+  position:relative;
+  text-align:center;
+  padding-top:60px;
 }
 
-.subtitle {
-  margin-top: 15px;
-  font-size: 1.1rem;
-  opacity: 0.9;
+h1{
+  font-family:"Playfair Display",serif;
+  font-size:3rem;
+  margin-bottom:10px;
 }
 
-/* ✨ Portrait Slideshow */
-.slideshow-container {
-  position: relative;
-  width: 280px;
-  height: 420px;
-  margin: 40px auto;
-  border-radius: 25px;
-  overflow: hidden;
-  box-shadow: 0 25px 45px rgba(0,0,0,0.25);
-  background: #f8dce6;
+.subtitle{
+  font-size:1.1rem;
+  opacity:0.85;
+  margin-bottom:40px;
 }
 
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out;
+/* Cinematic Slideshow */
+.slideshow{
+  position:relative;
+  width:280px;
+  height:480px;
+  margin:0 auto;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,0.5);
 }
 
-.slide.active {
-  opacity: 1;
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 1.5s ease-in-out, transform 8s ease-in-out;
+  transform:scale(1);
+}
+
+.slide.active{
+  opacity:1;
+  transform:scale(1.08);
+}
+
+/* Floating Hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:20px;
+  animation:floatUp 8s linear infinite;
+  opacity:0.6;
+}
+
+@keyframes floatUp{
+  to{
+    transform:translateY(-110vh);
+    opacity:0;
+  }
 }
 
 /* Button */
-button {
-  background: #ff7eb9;
-  border: none;
-  padding: 15px 35px;
-  border-radius: 40px;
-  color: white;
-  font-size: 1.1rem;
-  cursor: pointer;
-  margin-top: 40px;
-  transition: 0.3s;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+button{
+  margin-top:40px;
+  padding:15px 35px;
+  border:none;
+  border-radius:40px;
+  background:#ff4f9a;
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-button:hover {
-  background: #ff4f9a;
-  transform: scale(1.08);
+button:hover{
+  transform:scale(1.1);
 }
 
-/* Letter Box */
-#letterBox {
-  display: none;
-  margin-top: 50px;
-  padding: 25px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 1s ease-in-out;
+/* Letter */
+#letter{
+  display:none;
+  margin-top:40px;
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:25px;
+  background:rgba(255,255,255,0.95);
+  color:#b03060;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+  animation:fadeIn 1s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-#typedText {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-top: 15px;
-}
-
-footer {
-  margin-top: 60px;
-  font-size: 0.9rem;
-  opacity: 0.6;
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
 }
 </style>
 </head>
 
 <body>
 
-<h1>For Devanshi 💗</h1>
+<div class="background" id="bg"></div>
 
-<p class="subtitle">
-Someone who makes the world softer just by being in it ✨
-</p>
+<div class="container">
+  <h1>For Devanshi 💗</h1>
+  <p class="subtitle">Someone who makes the world softer just by being in it ✨</p>
 
-<!-- 💕 Slideshow -->
-<div class="slideshow-container">
-  <img src="pic1.jpg" class="slide active">
-  <img src="pic2.jpg" class="slide">
-  <img src="pic3.jpg" class="slide">
+  <div class="slideshow">
+    <img src="pic1.jpg" class="slide active">
+    <img src="pic2.jpg" class="slide">
+    <img src="pic3.jpg" class="slide">
+  </div>
+
+  <button onclick="openLetter()">Open My Heart 💌</button>
+
+  <div id="letter">
+    <p>
+      Devanshi, you are the warmth in my quiet moments,
+      the calm in my chaos, and the light in my ordinary days. 💕<br><br>
+      Every memory with you feels like a scene from a love story I never want to end.
+    </p>
+  </div>
 </div>
 
-<button onclick="openLetter()">Open My Heart 💌</button>
-
-<div id="letterBox">
-<h2>You Are Special 🌸</h2>
-<p id="typedText"></p>
-</div>
-
-<footer>Made with extra love 💞</footer>
+<audio id="music" src="music.mp3" loop></audio>
 
 <script>
 
-/* Slideshow Logic */
-let slides = document.querySelectorAll(".slide");
-let currentSlide = 0;
+/* Slideshow */
+let slides=document.querySelectorAll(".slide");
+let bg=document.getElementById("bg");
+let current=0;
 
-function nextSlide() {
-  slides[currentSlide].classList.remove("active");
-  currentSlide = (currentSlide + 1) % slides.length;
-  slides[currentSlide].classList.add("active");
+bg.style.backgroundImage=`url(${slides[0].src})`;
+
+function nextSlide(){
+  slides[current].classList.remove("active");
+  current=(current+1)%slides.length;
+  slides[current].classList.add("active");
+  bg.style.backgroundImage=`url(${slides[current].src})`;
 }
 
-setInterval(nextSlide, 3000);
+setInterval(nextSlide,4000);
 
-/* Typing Animation */
-let message =
-"Devanshi, you have this beautiful energy that makes everything feel lighter. 💕\n\nYour kindness, your warmth, and your smile make ordinary moments feel special.\n\nYou deserve happiness that feels endless, love that feels safe, and dreams that come true.\n\nNever stop being the soft, glowing soul that you are. 💗✨";
-
-let i = 0;
-function typeWriter() {
-  if (i < message.length) {
-    document.getElementById("typedText").innerHTML += message.charAt(i);
-    i++;
-    setTimeout(typeWriter, 35);
-  }
+/* Floating Hearts */
+function createHeart(){
+  let heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML="💗";
+  heart.style.left=Math.random()*100+"vw";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),8000);
 }
+setInterval(createHeart,700);
 
-function openLetter() {
-  document.getElementById("letterBox").style.display = "block";
-  if (i === 0) {
-    typeWriter();
-  }
+/* Open Letter + Play Music */
+function openLetter(){
+  document.getElementById("letter").style.display="block";
+  document.getElementById("music").play();
 }
-
 </script>
+
 </body>
 </html>
