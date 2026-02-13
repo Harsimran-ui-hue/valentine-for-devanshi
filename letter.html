@@ -45,17 +45,30 @@ body{
   100%{background-image:url('pic5.jpg');}
 }
 
-/* GLASS LETTER */
+/* SPARKLE GLOW EFFECT */
 .letter{
   max-width:700px;
   padding:60px;
   border-radius:25px;
   backdrop-filter:blur(20px);
   background:rgba(255,255,255,0.15);
-  box-shadow:0 20px 60px rgba(0,0,0,0.6);
+  box-shadow:0 0 40px rgba(255,192,203,0.6),
+             0 0 80px rgba(255,105,180,0.5),
+             0 0 120px rgba(255,20,147,0.4);
   text-align:center;
   z-index:5;
-  animation:fadeIn 2s ease;
+  animation:fadeIn 2s ease, glowPulse 3s infinite alternate;
+}
+
+@keyframes glowPulse{
+  from{
+    box-shadow:0 0 30px rgba(255,192,203,0.5),
+               0 0 60px rgba(255,105,180,0.4);
+  }
+  to{
+    box-shadow:0 0 60px rgba(255,192,203,0.8),
+               0 0 120px rgba(255,105,180,0.7);
+  }
 }
 
 @keyframes fadeIn{
@@ -67,6 +80,29 @@ body{
   font-family:'Playfair Display',serif;
   margin-bottom:25px;
   font-size:2rem;
+}
+
+/* ANIMATED I LOVE YOU */
+.love-line{
+  margin-top:25px;
+  font-size:1.3rem;
+  font-weight:600;
+  color:#ffb6d9;
+  letter-spacing:1px;
+  border-right:3px solid pink;
+  white-space:nowrap;
+  overflow:hidden;
+  width:0;
+  animation:typing 4s steps(25,end) forwards, blink 0.8s infinite;
+}
+
+@keyframes typing{
+  from{width:0}
+  to{width:100%}
+}
+
+@keyframes blink{
+  50%{border-color:transparent;}
 }
 
 /* FLOATING PHOTOS */
@@ -119,7 +155,7 @@ body{
 
 <div class="bg"></div>
 
-<!-- FLOATING IMAGES -->
+<!-- FLOATING PHOTOS -->
 <div class="photo photo1"><img src="pic1.jpg"></div>
 <div class="photo photo2"><img src="pic2.jpg"></div>
 <div class="photo photo3"><img src="pic3.jpg"></div>
@@ -142,10 +178,13 @@ I love how you act strong but still care so deeply.<br><br>
 Yes… you’re mine.<br><br>
 
 No matter what changes, no matter how time moves,
-you’ll always be the girl my heart chose first.<br><br>
-
-Happy Valentine’s Day, my favorite person 💕
+you’ll always be the girl my heart chose first.
 </p>
+
+<div class="love-line">
+I love you the most 💖
+</div>
+
 </div>
 
 <script>
