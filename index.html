@@ -1,143 +1,224 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For Devanshi 💗</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Devanshi 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-body{
+*{
   margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   overflow:hidden;
-  font-family:sans-serif;
-  text-align:center;
+  background:#000;
   color:white;
 }
 
 /* BLURRED BACKGROUND */
-.bg-slide{
+.background{
   position:fixed;
+  width:100%;
+  height:100%;
+  background:url("pic1.jpg") center/cover no-repeat;
+  filter:blur(30px) brightness(0.6);
+  z-index:-1;
+}
+
+/* CENTER CONTENT */
+.container{
+  text-align:center;
+}
+
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:2.8rem;
+  margin-bottom:30px;
+}
+
+/* SLIDESHOW */
+.slideshow-container{
+  position:relative;
+  width:330px;
+  height:520px;
+  margin:0 auto 40px auto;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 25px 60px rgba(0,0,0,0.5);
+}
+
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  opacity:0;
+  transition:opacity 1.5s ease-in-out;
+}
+
+.slide.active{
+  opacity:1;
+}
+
+.slide img{
   width:100%;
   height:100%;
   object-fit:cover;
-  filter:blur(25px) brightness(0.6);
-  transform:scale(1.1);
-  opacity:0;
-  transition:opacity 2s ease;
-  z-index:-2;
-}
-.bg-slide.active{opacity:1;}
-
-/* CENTER SLIDESHOW */
-.center-box{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:350px;
-  height:500px;
-  border-radius:25px;
-  overflow:hidden;
-  box-shadow:0 25px 60px rgba(0,0,0,0.6);
-}
-.center-slide{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  background:black;
-  opacity:0;
-  transition:opacity 2s ease;
-}
-.center-slide.active{opacity:1;}
-
-.content{
-  position:absolute;
-  top:10%;
-  width:100%;
+  object-position:center;
 }
 
-h1{font-size:3rem;}
-
+/* BUTTON */
 button{
-  margin-top:25px;
-  padding:14px 30px;
+  padding:15px 35px;
   border:none;
-  border-radius:30px;
+  border-radius:40px;
+  font-size:1.1rem;
   background:#ff4f9a;
   color:white;
-  font-size:1rem;
   cursor:pointer;
   transition:0.3s;
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
-button:hover{transform:scale(1.1);}
 
-/* Floating hearts */
-.heart{
-  position:fixed;
-  bottom:-20px;
-  font-size:18px;
-  animation:floatUp 6s linear infinite;
-  opacity:0.8;
+button:hover{
+  transform:scale(1.1);
 }
-@keyframes floatUp{
-  0%{transform:translateY(0);}
-  100%{transform:translateY(-110vh);}
+
+/* LETTER OVERLAY */
+.letter{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.85);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:30px;
+  opacity:0;
+  pointer-events:none;
+  transition:0.6s;
+}
+
+.letter.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.letter-box{
+  background:white;
+  color:#b03060;
+  max-width:700px;
+  padding:40px;
+  border-radius:20px;
+  text-align:center;
+  line-height:1.8;
+  overflow-y:auto;
+  max-height:80vh;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Background Slides -->
-<img src="pic1.jpg" class="bg-slide active">
-<img src="pic2.jpg" class="bg-slide">
-<img src="pic3.jpg" class="bg-slide">
-<img src="pic4.jpg" class="bg-slide">
-<img src="pic5.jpg" class="bg-slide">
+<div class="background"></div>
 
-<!-- Center Slides -->
-<div class="center-box">
-  <img src="pic1.jpg" class="center-slide active">
-  <img src="pic2.jpg" class="center-slide">
-  <img src="pic3.jpg" class="center-slide">
-  <img src="pic4.jpg" class="center-slide">
-  <img src="pic5.jpg" class="center-slide">
-</div>
-
-<div class="content">
+<div class="container">
   <h1>For Devanshi 💗</h1>
-  <button onclick="startLove()">Open My Heart 💌</button>
+
+  <div class="slideshow-container">
+    <div class="slide active"><img src="pic1.jpg"></div>
+    <div class="slide"><img src="pic2.jpg"></div>
+    <div class="slide"><img src="pic3.jpg"></div>
+    <div class="slide"><img src="pic4.jpg"></div>
+    <div class="slide"><img src="pic5.jpg"></div>
+  </div>
+
+  <button onclick="openLetter()">Open My Heart 💌</button>
 </div>
+
+<!-- LETTER -->
+<div class="letter" id="letter">
+  <div class="letter-box">
+    <h2>My Heart 💕</h2>
+    <br>
+    <p>
+Happy Valentine’s Day to the girl who accidentally became my favorite person…  
+and now refuses to leave my mind for even five minutes.
+
+First of all, how dare you be this cute?
+
+You just walked into my life, acted normal, smiled a little, talked sweetly…  
+and now I’m out here smiling at my phone like I’ve completely lost control.  
+This is clearly your fault.
+
+You’re unfairly adorable.  
+Unfairly sweet.  
+Unfairly good at making me miss you.
+
+And don’t think I haven’t noticed the way you act innocent sometimes.  
+You know exactly what you’re doing.  
+One smile and suddenly my entire mood changes.
+
+You’ve become my comfort and my favorite distraction at the same time.  
+And honestly? I wouldn’t change that for anything.
+
+I love how you tease me.  
+I love how you pretend you’re not soft.  
+I love how you act strong but still care so deeply.  
+And I love that you’re mine.
+
+Yes. Mine. I said it.
+
+If loving you this much is dramatic, then fine — I’m dramatic.
+
+And here’s the truth:
+
+I love you.  
+I love your smile.  
+I love your vibe.  
+I love your energy.  
+And I love the way you make my world feel warmer.
+
+No matter what changes…  
+You’ll always be the girl my heart chose first.
+
+Happy Valentine’s Day, my favorite person 💕
+    </p>
+  </div>
+</div>
+
+<!-- MUSIC -->
+<audio id="music" src="music.mp3"></audio>
 
 <script>
-let bgSlides=document.querySelectorAll(".bg-slide");
-let centerSlides=document.querySelectorAll(".center-slide");
+
+/* SLIDESHOW */
+let slides=document.querySelectorAll(".slide");
 let index=0;
 
 setInterval(()=>{
-  bgSlides[index].classList.remove("active");
-  centerSlides[index].classList.remove("active");
-  index=(index+1)%bgSlides.length;
-  bgSlides[index].classList.add("active");
-  centerSlides[index].classList.add("active");
-},4000);
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+},3000);
 
-/* Floating hearts */
-function createHeart(){
-  let heart=document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML="💗";
-  heart.style.left=Math.random()*100+"vw";
-  document.body.appendChild(heart);
-  setTimeout(()=>{heart.remove();},6000);
+/* OPEN LETTER */
+function openLetter(){
+  document.getElementById("letter").classList.add("active");
+  document.getElementById("music").play();
 }
-setInterval(createHeart,700);
 
-/* Go to letter page */
-function startLove(){
-  window.location.href="letter.html";
-}
 </script>
 
 </body>
