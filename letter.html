@@ -21,8 +21,8 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  position:relative;
   color:white;
+  position:relative;
 }
 
 /* BLURRED BACKGROUND SLIDESHOW */
@@ -33,76 +33,17 @@ body{
   background-size:cover;
   background-position:center;
   filter:blur(25px) brightness(0.6);
-  animation:bgSlide 20s infinite;
+  animation:bgSlide 25s infinite;
   z-index:-2;
 }
 
 @keyframes bgSlide{
   0%{background-image:url('pic1.jpg');}
-  25%{background-image:url('pic2.jpg');}
-  50%{background-image:url('pic3.jpg');}
-  75%{background-image:url('pic4.jpg');}
-  100%{background-image:url('pic5.jpg');}
-}
-
-/* SPARKLE GLOW EFFECT */
-.letter{
-  max-width:700px;
-  padding:60px;
-  border-radius:25px;
-  backdrop-filter:blur(20px);
-  background:rgba(255,255,255,0.15);
-  box-shadow:0 0 40px rgba(255,192,203,0.6),
-             0 0 80px rgba(255,105,180,0.5),
-             0 0 120px rgba(255,20,147,0.4);
-  text-align:center;
-  z-index:5;
-  animation:fadeIn 2s ease, glowPulse 3s infinite alternate;
-}
-
-@keyframes glowPulse{
-  from{
-    box-shadow:0 0 30px rgba(255,192,203,0.5),
-               0 0 60px rgba(255,105,180,0.4);
-  }
-  to{
-    box-shadow:0 0 60px rgba(255,192,203,0.8),
-               0 0 120px rgba(255,105,180,0.7);
-  }
-}
-
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(30px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-.letter h2{
-  font-family:'Playfair Display',serif;
-  margin-bottom:25px;
-  font-size:2rem;
-}
-
-/* ANIMATED I LOVE YOU */
-.love-line{
-  margin-top:25px;
-  font-size:1.3rem;
-  font-weight:600;
-  color:#ffb6d9;
-  letter-spacing:1px;
-  border-right:3px solid pink;
-  white-space:nowrap;
-  overflow:hidden;
-  width:0;
-  animation:typing 4s steps(25,end) forwards, blink 0.8s infinite;
-}
-
-@keyframes typing{
-  from{width:0}
-  to{width:100%}
-}
-
-@keyframes blink{
-  50%{border-color:transparent;}
+  20%{background-image:url('pic2.jpg');}
+  40%{background-image:url('pic3.jpg');}
+  60%{background-image:url('pic4.jpg');}
+  80%{background-image:url('pic5.jpg');}
+  100%{background-image:url('pic1.jpg');}
 }
 
 /* FLOATING PHOTOS */
@@ -123,14 +64,83 @@ body{
 }
 
 .photo1{top:10%; left:8%;}
-.photo2{top:15%; right:10%; animation-delay:1s;}
-.photo3{bottom:15%; left:12%; animation-delay:2s;}
-.photo4{bottom:12%; right:8%; animation-delay:3s;}
+.photo2{top:15%; right:8%; animation-delay:1s;}
+.photo3{bottom:15%; left:10%; animation-delay:2s;}
+.photo4{bottom:12%; right:10%; animation-delay:3s;}
 
 @keyframes float{
   0%{transform:translateY(0px) rotate(0deg);}
   50%{transform:translateY(-25px) rotate(3deg);}
   100%{transform:translateY(0px) rotate(0deg);}
+}
+
+/* GLOWING LETTER */
+.letter{
+  max-width:750px;
+  padding:60px;
+  border-radius:25px;
+  backdrop-filter:blur(20px);
+  background:rgba(255,255,255,0.15);
+  box-shadow:
+    0 0 40px rgba(255,192,203,0.7),
+    0 0 80px rgba(255,105,180,0.6),
+    0 0 120px rgba(255,20,147,0.5);
+  text-align:center;
+  animation:fadeIn 2s ease, glowPulse 3s infinite alternate;
+  z-index:5;
+}
+
+@keyframes glowPulse{
+  from{
+    box-shadow:
+      0 0 30px rgba(255,192,203,0.5),
+      0 0 60px rgba(255,105,180,0.4);
+  }
+  to{
+    box-shadow:
+      0 0 60px rgba(255,192,203,0.9),
+      0 0 120px rgba(255,105,180,0.8);
+  }
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+.letter h2{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;
+  margin-bottom:25px;
+  color:#ffd6eb;
+}
+
+.letter p{
+  line-height:1.8;
+  font-size:1rem;
+  color:#ffeef6;
+}
+
+/* TYPING LOVE LINE */
+.love-line{
+  margin-top:30px;
+  font-size:1.3rem;
+  font-weight:600;
+  color:#ffb6d9;
+  white-space:nowrap;
+  overflow:hidden;
+  border-right:3px solid pink;
+  width:0;
+  animation:typing 4s steps(25,end) forwards, blink 0.8s infinite;
+}
+
+@keyframes typing{
+  from{width:0}
+  to{width:100%}
+}
+
+@keyframes blink{
+  50%{border-color:transparent;}
 }
 
 /* HEART PARTICLES */
@@ -155,7 +165,7 @@ body{
 
 <div class="bg"></div>
 
-<!-- FLOATING PHOTOS -->
+<!-- FLOATING SIDE PHOTOS -->
 <div class="photo photo1"><img src="pic1.jpg"></div>
 <div class="photo photo2"><img src="pic2.jpg"></div>
 <div class="photo photo3"><img src="pic3.jpg"></div>
@@ -170,15 +180,25 @@ Happy Valentine’s Day to the girl who accidentally became my favorite person�
 
 First of all, how dare you be this cute?<br><br>
 
+You just walked into my life, acted normal, smiled a little, talked sweetly… and now I’m out here smiling at my phone like I’ve completely lost control. This is clearly your fault.<br><br>
+
 You’re unfairly adorable. Unfairly sweet. Unfairly good at making me miss you.<br><br>
 
-I love how you tease me. I love how you pretend you’re not soft.
-I love how you act strong but still care so deeply.<br><br>
+And don’t think I haven’t noticed the way you act innocent sometimes. You know exactly what you’re doing. One smile and suddenly my entire mood changes. One message and I forget what I was even stressed about.<br><br>
 
-Yes… you’re mine.<br><br>
+You’ve become my comfort and my favorite distraction at the same time. And honestly? I wouldn’t change that for anything.<br><br>
 
-No matter what changes, no matter how time moves,
-you’ll always be the girl my heart chose first.
+I love how you tease me.  
+I love how you pretend you’re not soft.  
+I love how you act strong but still care so deeply.  
+And I love that you’re mine. Yes. Mine. I said it.<br><br>
+
+If loving you this much is dramatic, then fine — I’m dramatic.<br><br>
+
+No matter who’s around, no matter what changes, no matter how time moves…  
+You’ll always be the girl my heart chose first.<br><br>
+
+Happy Valentine’s Day, my favorite person 💕
 </p>
 
 <div class="love-line">
