@@ -21,14 +21,14 @@ body{
   text-align:center;
 }
 
-/* Blurred Background */
+/* Background Blur */
 .background{
   position:fixed;
   width:100%;
   height:100%;
   background-size:cover;
   background-position:center;
-  filter:blur(25px) brightness(0.7);
+  filter:blur(25px) brightness(0.6);
   transition:background-image 1.5s ease-in-out;
   z-index:-1;
 }
@@ -50,7 +50,7 @@ h1{
   margin-bottom:40px;
 }
 
-/* Slideshow (Mixed Image Safe) */
+/* Slideshow (Mixed Size Safe) */
 .slideshow{
   position:relative;
   width:90%;
@@ -80,7 +80,7 @@ h1{
 
 .slide.active{
   opacity:1;
-  transform:scale(1.03);
+  transform:scale(1.04);
 }
 
 /* Floating Hearts */
@@ -130,6 +130,8 @@ h1{
     <img src="pic1.jpg" class="slide active">
     <img src="pic2.jpg" class="slide">
     <img src="pic3.jpg" class="slide">
+    <img src="pic4.jpg" class="slide">
+    <img src="pic5.jpg" class="slide">
   </div>
 
   <a href="letter.html" class="button-link">Open My Heart 💌</a>
@@ -137,32 +139,34 @@ h1{
 
 <script>
 
-/* Slideshow */
-let slides=document.querySelectorAll(".slide");
-let bg=document.getElementById("bg");
-let current=0;
+/* Slideshow Logic */
+let slides = document.querySelectorAll(".slide");
+let bg = document.getElementById("bg");
+let current = 0;
 
-if(slides.length>0){
-  bg.style.backgroundImage=`url(${slides[0].src})`;
+if(slides.length > 0){
+  bg.style.backgroundImage = `url(${slides[0].src})`;
 }
 
 function nextSlide(){
   slides[current].classList.remove("active");
-  current=(current+1)%slides.length;
+  current = (current + 1) % slides.length;
   slides[current].classList.add("active");
-  bg.style.backgroundImage=`url(${slides[current].src})`;
+  bg.style.backgroundImage = `url(${slides[current].src})`;
 }
-setInterval(nextSlide,4000);
+
+setInterval(nextSlide, 4500);
 
 /* Floating Hearts */
 function createHeart(){
-  let heart=document.createElement("div");
+  let heart = document.createElement("div");
   heart.classList.add("heart");
-  heart.innerHTML="💗";
-  heart.style.left=Math.random()*100+"vw";
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
   document.body.appendChild(heart);
   setTimeout(()=>heart.remove(),8000);
 }
+
 setInterval(createHeart,700);
 
 </script>
