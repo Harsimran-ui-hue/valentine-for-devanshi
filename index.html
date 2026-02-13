@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Devanshi 💖</title>
+<title>For Devanshi 💕</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
@@ -20,206 +20,108 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
+  flex-direction:column;
   overflow:hidden;
-  background:#000;
   color:white;
+  position:relative;
 }
 
-/* BLURRED BACKGROUND */
-.background{
+/* Blurred Background Slideshow */
+.bg{
   position:fixed;
   width:100%;
   height:100%;
-  background:url("pic1.jpg") center/cover no-repeat;
-  filter:blur(30px) brightness(0.6);
-  z-index:-1;
+  background-size:cover;
+  background-position:center;
+  filter:blur(25px) brightness(0.6);
+  animation:bgSlide 25s infinite;
+  z-index:-2;
 }
 
-/* CENTER CONTENT */
-.container{
-  text-align:center;
+@keyframes bgSlide{
+  0%{background-image:url('pic1.jpg');}
+  20%{background-image:url('pic2.jpg');}
+  40%{background-image:url('pic3.jpg');}
+  60%{background-image:url('pic4.jpg');}
+  80%{background-image:url('pic5.jpg');}
+  100%{background-image:url('pic1.jpg');}
 }
 
-h1{
-  font-family:'Playfair Display',serif;
-  font-size:2.8rem;
-  margin-bottom:30px;
-}
-
-/* SLIDESHOW */
-.slideshow-container{
-  position:relative;
-  width:330px;
-  height:520px;
-  margin:0 auto 40px auto;
-  border-radius:25px;
+/* Center Slideshow */
+.slideshow{
+  width:300px;
+  height:420px;
+  border-radius:20px;
   overflow:hidden;
-  box-shadow:0 25px 60px rgba(0,0,0,0.5);
+  box-shadow:0 25px 60px rgba(0,0,0,0.6);
+  position:relative;
 }
 
 .slide{
   position:absolute;
   width:100%;
   height:100%;
-  opacity:0;
-  transition:opacity 1.5s ease-in-out;
-}
-
-.slide.active{
-  opacity:1;
-}
-
-.slide img{
-  width:100%;
-  height:100%;
   object-fit:cover;
-  object-position:center;
+  opacity:0;
+  animation:fade 25s infinite;
 }
 
-/* BUTTON */
+.slide:nth-child(1){animation-delay:0s;}
+.slide:nth-child(2){animation-delay:5s;}
+.slide:nth-child(3){animation-delay:10s;}
+.slide:nth-child(4){animation-delay:15s;}
+.slide:nth-child(5){animation-delay:20s;}
+
+@keyframes fade{
+  0%{opacity:0;}
+  5%{opacity:1;}
+  20%{opacity:1;}
+  25%{opacity:0;}
+  100%{opacity:0;}
+}
+
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:3rem;
+  margin-bottom:25px;
+}
+
 button{
+  margin-top:30px;
   padding:15px 35px;
   border:none;
   border-radius:40px;
-  font-size:1.1rem;
   background:#ff4f9a;
   color:white;
+  font-size:1.1rem;
   cursor:pointer;
   transition:0.3s;
-  box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
 button:hover{
   transform:scale(1.1);
-}
-
-/* LETTER OVERLAY */
-.letter{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.85);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:30px;
-  opacity:0;
-  pointer-events:none;
-  transition:0.6s;
-}
-
-.letter.active{
-  opacity:1;
-  pointer-events:auto;
-}
-
-.letter-box{
-  background:white;
-  color:#b03060;
-  max-width:700px;
-  padding:40px;
-  border-radius:20px;
-  text-align:center;
-  line-height:1.8;
-  overflow-y:auto;
-  max-height:80vh;
+  background:#ff2e83;
 }
 </style>
 </head>
 
 <body>
 
-<div class="background"></div>
+<div class="bg"></div>
 
-<div class="container">
-  <h1>For Devanshi 💗</h1>
+<h1>For Devanshi 💗</h1>
 
-  <div class="slideshow-container">
-    <div class="slide active"><img src="pic1.jpg"></div>
-    <div class="slide"><img src="pic2.jpg"></div>
-    <div class="slide"><img src="pic3.jpg"></div>
-    <div class="slide"><img src="pic4.jpg"></div>
-    <div class="slide"><img src="pic5.jpg"></div>
-  </div>
-
-  <button onclick="openLetter()">Open My Heart 💌</button>
+<div class="slideshow">
+  <img src="pic1.jpg" class="slide">
+  <img src="pic2.jpg" class="slide">
+  <img src="pic3.jpg" class="slide">
+  <img src="pic4.jpg" class="slide">
+  <img src="pic5.jpg" class="slide">
 </div>
 
-<!-- LETTER -->
-<div class="letter" id="letter">
-  <div class="letter-box">
-    <h2>My Heart 💕</h2>
-    <br>
-    <p>
-Happy Valentine’s Day to the girl who accidentally became my favorite person…  
-and now refuses to leave my mind for even five minutes.
-
-First of all, how dare you be this cute?
-
-You just walked into my life, acted normal, smiled a little, talked sweetly…  
-and now I’m out here smiling at my phone like I’ve completely lost control.  
-This is clearly your fault.
-
-You’re unfairly adorable.  
-Unfairly sweet.  
-Unfairly good at making me miss you.
-
-And don’t think I haven’t noticed the way you act innocent sometimes.  
-You know exactly what you’re doing.  
-One smile and suddenly my entire mood changes.
-
-You’ve become my comfort and my favorite distraction at the same time.  
-And honestly? I wouldn’t change that for anything.
-
-I love how you tease me.  
-I love how you pretend you’re not soft.  
-I love how you act strong but still care so deeply.  
-And I love that you’re mine.
-
-Yes. Mine. I said it.
-
-If loving you this much is dramatic, then fine — I’m dramatic.
-
-And here’s the truth:
-
-I love you.  
-I love your smile.  
-I love your vibe.  
-I love your energy.  
-And I love the way you make my world feel warmer.
-
-No matter what changes…  
-You’ll always be the girl my heart chose first.
-
-Happy Valentine’s Day, my favorite person 💕
-    </p>
-  </div>
-</div>
-
-<!-- MUSIC -->
-<audio id="music" src="music.mp3"></audio>
-
-<script>
-
-/* SLIDESHOW */
-let slides=document.querySelectorAll(".slide");
-let index=0;
-
-setInterval(()=>{
-  slides[index].classList.remove("active");
-  index=(index+1)%slides.length;
-  slides[index].classList.add("active");
-},3000);
-
-/* OPEN LETTER */
-function openLetter(){
-  document.getElementById("letter").classList.add("active");
-  document.getElementById("music").play();
-}
-
-</script>
+<a href="letter.html">
+  <button>Open My Heart 💌</button>
+</a>
 
 </body>
 </html>
