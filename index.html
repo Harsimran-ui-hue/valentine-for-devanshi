@@ -8,55 +8,164 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-body{
+*{
   margin:0;
   padding:0;
+  box-sizing:border-box;
   font-family:"Poppins",sans-serif;
-  background:linear-gradient(135deg,#ffd6e8,#ffeaf4);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-  text-align:center;
 }
 
-.letter{
-  max-width:600px;
-  background:white;
-  padding:40px;
-  border-radius:20px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.3);
-  animation:fadeIn 1.2s ease-in-out;
+body{
+  overflow:hidden;
+  color:white;
+  text-align:center;
+  height:100vh;
+}
+
+/* Background Slideshow */
+.slideshow{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-2;
+}
+
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover; /* THIS FIXES MIXED SIZES */
+  opacity:0;
+  transition:opacity 2s ease-in-out;
+}
+
+.slide.active{
+  opacity:1;
+}
+
+/* Dark overlay */
+.overlay{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.35);
+  z-index:-1;
+}
+
+/* Intro Section */
+#intro{
+  padding-top:100px;
+  transition:opacity 1s ease;
 }
 
 h1{
   font-family:"Playfair Display",serif;
-  color:#b03060;
+  font-size:3rem;
+  margin-bottom:20px;
 }
 
-p{
+.button{
+  margin-top:40px;
+  padding:15px 35px;
+  border:none;
+  border-radius:40px;
+  background:#ff4f9a;
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.button:hover{
+  transform:scale(1.1);
+}
+
+/* Letter Section */
+#letterPage{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 1.2s ease;
+}
+
+#letterPage.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.letter{
+  max-width:600px;
+  background:rgba(255,255,255,0.95);
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
   color:#b03060;
-  line-height:1.8;
-  margin-top:20px;
+  animation:fadeIn 1.5s ease;
 }
 
 @keyframes fadeIn{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
+  from{transform:translateY(20px);opacity:0;}
+  to{transform:translateY(0);opacity:1;}
+}
+
+/* Floating Hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:20px;
+  animation:floatUp 6s linear infinite;
+  opacity:0.8;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(0);}
+  100%{transform:translateY(-110vh);}
 }
 </style>
 </head>
 
 <body>
 
-<div class="letter">
-  <h1>My Heart 💕</h1>
-  <p>
-    Devanshi, you are the warmth in my quiet moments,
-    the calm in my chaos, and the light in my ordinary days.<br><br>
-    Every memory with you feels like a scene from a love story
-    I never want to end.
-  </p>
+<!-- Slideshow -->
+<div class="slideshow">
+  <img src="pic1.jpg" class="slide active">
+  <img src="pic2.jpg" class="slide">
+  <img src="pic3.jpg" class="slide">
+  <img src="pic4.jpg" class="slide">
+  <img src="pic5.jpg" class="slide">
+</div>
+
+<div class="overlay"></div>
+
+<!-- Intro -->
+<div id="intro">
+  <h1>For Devanshi 💗</h1>
+  <button class="button" onclick="startExperience()">Open My Heart 💌</button>
+</div>
+
+<!-- Letter -->
+<div id="letterPage">
+  <div class="letter">
+    <h2>My Heart 💕</h2>
+    <p>
+      My Devanshi,<br><br>
+      You are my favorite distraction, my calm in chaos, 
+      and the reason I randomly smile at my phone.
+      Somehow you made loving you feel easy,
+      natural, and dangerously addictive.<br><br>
+      No matter what changes,
+      you’ll always be the girl my heart chose first.
+    </p>
+  </div>
 </div>
 
 <audio id="music" loop>
@@ -64,15 +173,32 @@ p{
 </audio>
 
 <script>
-window.addEventListener("load", function(){
-    const music = document.getElementById("music");
-    music.play().catch(()=>{
-        // If autoplay blocked, play on first click anywhere
-        document.body.addEventListener("click", function(){
-            music.play();
-        }, { once: true });
-    });
-});
+/* Slideshow */
+let slides=document.querySelectorAll(".slide");
+let index=0;
+
+setInterval(()=>{
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+},4000);
+
+/* Music + Letter */
+function startExperience(){
+  document.getElementById("music").play();
+  document.getElementById("letterPage").classList.add("active");
+}
+
+/* Floating Hearts */
+function createHeart(){
+  let heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML="💗";
+  heart.style.left=Math.random()*100+"vw";
+  document.body.appendChild(heart);
+  setTimeout(()=>{heart.remove();},6000);
+}
+setInterval(createHeart,600);
 </script>
 
 </body>
