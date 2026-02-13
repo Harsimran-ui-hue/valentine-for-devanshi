@@ -2,125 +2,163 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Valentine’s Day 💕</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Heart 💕</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-body{
+*{
   margin:0;
-  min-height:100vh;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  height:100vh;
+  overflow:hidden;
   display:flex;
   justify-content:center;
   align-items:center;
-  background:linear-gradient(135deg,#ffd6e8,#ffeaf4);
-  font-family:Arial, sans-serif;
-  text-align:center;
-  padding:40px 20px;
+  position:relative;
+  color:white;
 }
 
-.card{
+/* BLURRED BACKGROUND SLIDESHOW */
+.bg{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background-size:cover;
+  background-position:center;
+  filter:blur(25px) brightness(0.6);
+  animation:bgSlide 20s infinite;
+  z-index:-2;
+}
+
+@keyframes bgSlide{
+  0%{background-image:url('pic1.jpg');}
+  25%{background-image:url('pic2.jpg');}
+  50%{background-image:url('pic3.jpg');}
+  75%{background-image:url('pic4.jpg');}
+  100%{background-image:url('pic5.jpg');}
+}
+
+/* GLASS LETTER */
+.letter{
   max-width:700px;
-  background:white;
-  padding:50px 40px;
+  padding:60px;
   border-radius:25px;
-  box-shadow:0 25px 60px rgba(0,0,0,0.3);
-  color:#b03060;
-  animation:fade 1.3s ease;
+  backdrop-filter:blur(20px);
+  background:rgba(255,255,255,0.15);
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);
+  text-align:center;
+  z-index:5;
+  animation:fadeIn 2s ease;
 }
 
-h2{
-  margin-bottom:25px;
-}
-
-p{
-  line-height:1.8;
-  font-size:1rem;
-}
-
-@keyframes fade{
-  from{opacity:0; transform:translateY(20px);}
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(30px);}
   to{opacity:1; transform:translateY(0);}
+}
+
+.letter h2{
+  font-family:'Playfair Display',serif;
+  margin-bottom:25px;
+  font-size:2rem;
+}
+
+/* FLOATING PHOTOS */
+.photo{
+  position:absolute;
+  width:160px;
+  height:220px;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+  animation:float 6s ease-in-out infinite;
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.photo1{top:10%; left:8%;}
+.photo2{top:15%; right:10%; animation-delay:1s;}
+.photo3{bottom:15%; left:12%; animation-delay:2s;}
+.photo4{bottom:12%; right:8%; animation-delay:3s;}
+
+@keyframes float{
+  0%{transform:translateY(0px) rotate(0deg);}
+  50%{transform:translateY(-25px) rotate(3deg);}
+  100%{transform:translateY(0px) rotate(0deg);}
+}
+
+/* HEART PARTICLES */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:18px;
+  animation:rise 6s linear infinite;
+  opacity:0.8;
+}
+
+@keyframes rise{
+  to{
+    transform:translateY(-110vh);
+    opacity:0;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
-  <h2>Happy Valentine’s Day 💕</h2>
+<div class="bg"></div>
 
-  <p>
-  Happy Valentine’s Day to the girl who accidentally became my favorite person… 
-  and now refuses to leave my mind for even five minutes.<br><br>
+<!-- FLOATING IMAGES -->
+<div class="photo photo1"><img src="pic1.jpg"></div>
+<div class="photo photo2"><img src="pic2.jpg"></div>
+<div class="photo photo3"><img src="pic3.jpg"></div>
+<div class="photo photo4"><img src="pic4.jpg"></div>
 
-  First of all, how dare you be this cute?<br><br>
+<!-- LETTER -->
+<div class="letter">
+<h2>Happy Valentine’s Day 💕</h2>
 
-  You just walked into my life, acted normal, smiled a little, talked sweetly… 
-  and now I’m out here smiling at my phone like I’ve completely lost control. 
-  This is clearly your fault.<br><br>
+<p>
+Happy Valentine’s Day to the girl who accidentally became my favorite person… and now refuses to leave my mind for even five minutes.<br><br>
 
-  You’re unfairly adorable.<br>
-  Unfairly sweet.<br>
-  Unfairly good at making me miss you.<br><br>
+First of all, how dare you be this cute?<br><br>
 
-  And don’t think I haven’t noticed the way you act innocent sometimes. 
-  You know exactly what you’re doing. One smile and suddenly my entire mood changes. 
-  One message and I forget what I was even stressed about.<br><br>
+You’re unfairly adorable. Unfairly sweet. Unfairly good at making me miss you.<br><br>
 
-  You’ve become my comfort and my favorite distraction at the same time. 
-  And honestly? I wouldn’t change that for anything.<br><br>
+I love how you tease me. I love how you pretend you’re not soft.
+I love how you act strong but still care so deeply.<br><br>
 
-  I love how you tease me.<br>
-  I love how you pretend you’re not soft.<br>
-  I love how you act strong but still care so deeply.<br>
-  And I love that you’re mine.<br><br>
+Yes… you’re mine.<br><br>
 
-  Yes. Mine. I said it.<br><br>
+No matter what changes, no matter how time moves,
+you’ll always be the girl my heart chose first.<br><br>
 
-  You have this effect on me that I can’t even explain properly. 
-  It’s not just attraction. It’s not just affection. 
-  It’s something calmer and deeper… but also mixed with “wow she’s dangerously cute.”<br><br>
-
-  If loving you this much is dramatic, then fine — I’m dramatic.<br><br>
-
-  And just so you know…<br><br>
-
-  If you keep being this pretty, this kind, and this sweet, 
-  I might have to officially complain. Because it’s getting impossible 
-  to not fall for you more every single day.<br><br>
-
-  So on this Valentine’s Day, here’s the truth:<br><br>
-
-  I love you.<br>
-  I love your smile.<br>
-  I love your vibe.<br>
-  I love your energy.<br>
-  And I love the way you make my world feel a little warmer.<br><br>
-
-  Stay cute. Stay sweet.<br>
-  And maybe… don’t look too good around other people 😌<br><br>
-
-  And here’s the part you should never forget —<br><br>
-
-  No matter who’s around, no matter what changes, no matter how time moves…<br><br>
-
-  You’ll always be the girl my heart chose first.<br><br>
-
-  Happy Valentine’s Day, my favorite person 💕
-  </p>
+Happy Valentine’s Day, my favorite person 💕
+</p>
 </div>
 
-<audio id="music" loop autoplay>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
 <script>
-window.addEventListener("load",()=>{
-  const music=document.getElementById("music");
-  music.play().catch(()=>{
-    document.body.addEventListener("click",()=>music.play(),{once:true});
-  });
-});
+function createHeart(){
+  let heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML="💖";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(4+Math.random()*3)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+}
+setInterval(createHeart,400);
 </script>
 
 </body>
