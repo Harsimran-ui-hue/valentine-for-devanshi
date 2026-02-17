@@ -19,21 +19,22 @@ body{
   min-height:100vh;
   overflow-y:auto;
   display:flex;
-  justify-content:center;
+  flex-direction:column;
   align-items:center;
-  color: #ff4d88;
+  color:white;
   position:relative;
+  padding:40px 0;
 }
 
-/* BLURRED BACKGROUND */
+/* OPTIMIZED BACKGROUND */
 .bg{
   position:fixed;
   width:100%;
   height:100%;
   background-size:cover;
   background-position:center;
-  filter:blur(25px) brightness(0.6);
-  animation:bgSlide 25s infinite;
+  filter:blur(12px) brightness(0.6);
+  animation:bgSlide 30s infinite;
   z-index:-2;
 }
 
@@ -46,15 +47,16 @@ body{
   100%{background-image:url('pic1.jpg');}
 }
 
-/* FLOATING SIDE PHOTOS */
+/* FLOATING PHOTOS */
 .photo{
   position:absolute;
-  width:160px;
-  height:220px;
+  width:150px;
+  height:200px;
   border-radius:15px;
   overflow:hidden;
   box-shadow:0 20px 50px rgba(0,0,0,0.6);
-  animation:float 6s ease-in-out infinite;
+  animation:float 10s ease-in-out infinite;
+  will-change:transform;
 }
 
 .photo img{
@@ -63,43 +65,40 @@ body{
   object-fit:cover;
 }
 
-.photo1{top:10%; left:8%;}
-.photo2{top:15%; right:8%; animation-delay:1s;}
-.photo3{bottom:15%; left:10%; animation-delay:2s;}
-.photo4{bottom:12%; right:10%; animation-delay:3s;}
+.photo1{top:10%; left:5%;}
+.photo2{top:15%; right:5%; animation-delay:1s;}
+.photo3{bottom:15%; left:8%; animation-delay:2s;}
+.photo4{bottom:12%; right:8%; animation-delay:3s;}
 
 @keyframes float{
-  0%{transform:translateY(0px);}
+  0%{transform:translateY(0);}
   50%{transform:translateY(-20px);}
-  100%{transform:translateY(0px);}
+  100%{transform:translateY(0);}
 }
 
-/* GLOWING LETTER */
+/* LETTER */
 .letter{
-  max-width:750px;
+  max-width:800px;
   padding:60px;
   border-radius:25px;
-  backdrop-filter:blur(20px);
+  backdrop-filter:blur(15px);
   background:rgba(0,0,0,0.55);
   box-shadow:
-    0 0 40px rgba(255,192,203,0.7),
-    0 0 80px rgba(255,105,180,0.6),
-    0 0 120px rgba(255,20,147,0.5);
+    0 0 40px rgba(255,192,203,0.8),
+    0 0 80px rgba(255,105,180,0.7),
+    0 0 120px rgba(255,20,147,0.6);
   text-align:center;
   animation:glowPulse 3s infinite alternate;
-  z-index:5;
+  margin-bottom:80px;
+  transform:translateZ(0);
 }
 
 @keyframes glowPulse{
   from{
-    box-shadow:
-      0 0 30px rgba(255,192,203,0.5),
-      0 0 60px rgba(255,105,180,0.4);
+    box-shadow:0 0 30px #ff7eb9;
   }
   to{
-    box-shadow:
-      0 0 60px rgba(255,192,203,0.9),
-      0 0 100px rgba(255,20,147,0.7);
+    box-shadow:0 0 80px #ff1493;
   }
 }
 
@@ -107,6 +106,8 @@ h1{
   font-family:'Playfair Display',serif;
   font-size:42px;
   margin-bottom:30px;
+  color:#ff4d88;
+  text-shadow:0 0 20px hotpink;
 }
 
 p{
@@ -126,6 +127,62 @@ p{
   50%{transform:scale(1.1);}
   100%{transform:scale(1);}
 }
+
+/* TIMELINE */
+.timeline-section{
+  width:100%;
+  max-width:900px;
+  margin:40px auto;
+  padding:40px;
+}
+
+.timeline-section h2{
+  text-align:center;
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  margin-bottom:50px;
+  color:#ff4d88;
+  text-shadow:0 0 15px hotpink;
+}
+
+.timeline{
+  border-left:3px solid rgba(255,255,255,0.4);
+  padding-left:25px;
+}
+
+.timeline-item{
+  margin-bottom:40px;
+  opacity:0;
+  transform:translateY(40px);
+  animation:fadeUp 1s forwards;
+  will-change:transform, opacity;
+}
+
+.timeline-item:nth-child(1){animation-delay:0.3s;}
+.timeline-item:nth-child(2){animation-delay:0.6s;}
+.timeline-item:nth-child(3){animation-delay:0.9s;}
+.timeline-item:nth-child(4){animation-delay:1.2s;}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.timeline-date{
+  font-weight:600;
+  color:#ffb3d9;
+  margin-bottom:8px;
+}
+
+.timeline-content{
+  background:rgba(0,0,0,0.5);
+  padding:15px 20px;
+  border-radius:12px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 0 15px rgba(255,105,180,0.3);
+}
 </style>
 </head>
 
@@ -133,17 +190,18 @@ p{
 
 <div class="bg"></div>
 
+<!-- MUSIC -->
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <!-- FLOATING PHOTOS -->
 <div class="photo photo1"><img src="pic1.jpg"></div>
 <div class="photo photo2"><img src="pic2.jpg"></div>
 <div class="photo photo3"><img src="pic3.jpg"></div>
 <div class="photo photo4"><img src="pic4.jpg"></div>
 
-<!-- MUSIC (AUTOPLAYS AFTER BUTTON CLICK FROM INDEX) -->
-<audio id="bgMusic" autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
+<!-- LETTER -->
 <div class="letter">
 <h1>My Heart 💕</h1>
 
@@ -170,7 +228,43 @@ Happy Valentine’s Day, my favorite person 💕
 </p>
 
 <div class="love">I love you the most 💖</div>
+</div>
 
+<!-- TIMELINE -->
+<div class="timeline-section">
+<h2>Our Story 💞</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="timeline-date">The Day We Met</div>
+<div class="timeline-content">
+The first time we talked… I didn’t know you were about to become my favorite person.
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-date">First Smile</div>
+<div class="timeline-content">
+That moment you smiled at me… yeah, that’s when I was done for.
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-date">When I Realized</div>
+<div class="timeline-content">
+Somewhere between our conversations and laughter… I realized I liked you more than I planned.
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-date">Today</div>
+<div class="timeline-content">
+And now here I am… loving you more than yesterday and less than tomorrow.
+</div>
+</div>
+
+</div>
 </div>
 
 </body>
